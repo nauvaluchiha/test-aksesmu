@@ -1,6 +1,8 @@
-<div class="grid grid-cols-2 xl:grid-cols-3 gap-2.5 rounded-xl bg-white p-5 max-[500px]:grid-cols-1">
+<div
+    class="grid grid-cols-2 gap-2.5 rounded-xl bg-white p-5 max-[500px]:grid-cols-1 xl:grid-cols-3"
+>
     @foreach ($products as $product)
-        <div class="rounded-lg border-2 border-green-600 p-4 products-list">
+        <div class="product rounded-lg border-2 border-green-600 p-4">
             <div class="">
                 <p class="line-clamp-1 text-lg font-semibold">
                     {{ $product->name }}
@@ -39,7 +41,7 @@
 
     <div
         id="products-loading"
-        class="cols-span-3 col-start-2 hidden place-content-center"
+        class="col-span-2 hidden place-content-center lg:col-span-3"
     >
         <div class="flex h-32 items-center justify-center">
             <div
@@ -50,7 +52,7 @@
 
     @if ($products->isEmpty())
         <div
-            class="cols-span-3 col-start-2 flex place-content-center items-center justify-center rounded-lg border-2 border-dashed border-gray-600 bg-white p-4"
+            class="lg:cols-span-3 col-span-2 flex place-content-center items-center justify-center rounded-lg border-2 border-dashed border-gray-600 bg-white p-4"
         >
             <div
                 class="flex size-20 items-center justify-center rounded-full border-4 border-dashed border-gray-400"

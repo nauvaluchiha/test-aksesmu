@@ -9,7 +9,7 @@ async function deleteProduct(product) {
         },
     });
 
-    if(document.getElementById("id").value == productId) {
+    if (document.getElementById("id").value == productId) {
         document.getElementById("id").value = "";
         document.getElementById("name").value = "";
         document.getElementById("description").value = "";
@@ -17,10 +17,23 @@ async function deleteProduct(product) {
         document.getElementById("stock").value = "";
     }
 
+    // const product = document.getElementsByClassName("product");
+    // const loading = document.getElementById("products-loading");
+
+    for (let el of product) {
+        el.classList.add("hidden");
+    }
+    loading?.classList.remove("hidden");
+
     const result = await response.json();
 
     if (result.message) {
-        fetchProducts();
+        fetchProducts().then(() => {
+            for (let el of product) {
+                el.classList.remove("hidden");
+            }
+            loading?.classList.add("hidden");
+        });
     }
 }
 
