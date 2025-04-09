@@ -1,7 +1,9 @@
 import { fetchProducts } from "./fetch-products.js";
 
-async function deleteProduct(product) {
-    const productId = product.dataset.productId;
+let product = document.getElementsByClassName("product");
+
+async function deleteProduct(data) {
+    const productId = data.dataset.productId;
     const response = await fetch(`/api/products/${productId}`, {
         method: "DELETE",
         headers: {
@@ -17,22 +19,21 @@ async function deleteProduct(product) {
         document.getElementById("stock").value = "";
     }
 
-    // const product = document.getElementsByClassName("product");
-    // const loading = document.getElementById("products-loading");
-
+    document.getElementById("products-loading").classList.remove("hidden");
     for (let el of product) {
         el.classList.add("hidden");
     }
-    loading?.classList.remove("hidden");
 
     const result = await response.json();
 
+    console.log(result, "delete result");
+
     if (result.message) {
         fetchProducts().then(() => {
-            for (let el of product) {
+            for (let el of data) {
                 el.classList.remove("hidden");
             }
-            loading?.classList.add("hidden");
+            document.getElementById("products-loading").classList.add("hidden");
         });
     }
 }
