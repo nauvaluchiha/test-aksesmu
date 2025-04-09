@@ -10,6 +10,7 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
         api: __DIR__.'/../routes/api.php',
+        apiPrefix: getenv('APP_ENV') === 'local' || !getenv('APP_ENV') ? '/api' : '',
     )
     ->withMiddleware(function (Middleware $middleware) {
         //
