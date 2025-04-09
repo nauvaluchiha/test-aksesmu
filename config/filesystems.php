@@ -29,19 +29,15 @@ return [
     */
 
     'disks' => [
-
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app/private'),
-            'serve' => true,
-            'throw' => false,
-            'report' => false,
+            'root' => env('FILESYSTEM_DISK', '/tmp/laravel'),  // Use environment variable
         ],
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => env('FILESYSTEM_DISK', '/tmp/laravel/public'),  // Change to /tmp/laravel/public
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
@@ -59,8 +55,8 @@ return [
             'throw' => false,
             'report' => false,
         ],
-
     ],
+
 
     /*
     |--------------------------------------------------------------------------
