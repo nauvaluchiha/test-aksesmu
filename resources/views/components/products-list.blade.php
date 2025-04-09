@@ -52,7 +52,7 @@
 
     @if ($products->isEmpty())
         <div
-            class="lg:cols-span-3 col-span-2 flex place-content-center items-center justify-center rounded-lg border-2 border-dashed border-gray-600 bg-white p-4"
+            class="lg:col-span-3 col-span-2 flex place-content-center items-center justify-center rounded-lg border-2 border-dashed border-gray-600 bg-white p-4"
         >
             <div
                 class="flex size-20 items-center justify-center rounded-full border-4 border-dashed border-gray-400"

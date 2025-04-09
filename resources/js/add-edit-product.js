@@ -1,25 +1,25 @@
 import { fetchProducts } from "./fetch-products.js";
 
+let product = document.getElementsByClassName("product");
+
 async function addEditProduct() {
-    const product = document.getElementsByClassName("product");
-    const loading = document.getElementById("products-loading");
 
     document
         .getElementById("productForm")
         .addEventListener("submit", async function (e) {
             e.preventDefault();
 
+            document.getElementById("products-loading").classList.remove("hidden");
             for (let el of product) {
                 el.classList.add("hidden");
             }
-            loading?.classList.remove("hidden");
 
             const formData = new FormData(this);
             let id = formData.get("id");
             formData.delete("id");
 
             if (id) {
-                formData.append("_method", "PUT"); // Tambahkan override method
+                formData.append("_method", "PUT");
 
                 const response = await fetch(`/api/products/${id}`, {
                     method: "POST",
@@ -36,7 +36,7 @@ async function addEditProduct() {
                         for (let el of product) {
                             el.classList.remove("hidden");
                         }
-                        loading?.classList.add("hidden");
+                        document.getElementById("products-loading").classList.add("hidden");
                     });
                 }
             } else {
@@ -55,7 +55,7 @@ async function addEditProduct() {
                         for (let el of product) {
                             el.classList.remove("hidden");
                         }
-                        loading?.classList.add("hidden");
+                        document.getElementById("products-loading").classList.add("hidden");
                     });
                 }
             }
