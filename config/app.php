@@ -123,11 +123,13 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'providers' => [
-        // Other service providers...
+    // 'providers' => [
+    //     // Other service providers...
 
-        // Registering CollisionServiceProvider
-        NunoMaduro\Collision\Adapters\Laravel\CollisionServiceProvider::class,
-    ],
+    //     // Registering CollisionServiceProvider
+    //     NunoMaduro\Collision\Adapters\Laravel\CollisionServiceProvider::class,
+    //     Illuminate\Filesystem\FilesystemServiceProvider::class,
+
+    // ],
 
 ];

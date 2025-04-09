@@ -31,12 +31,12 @@ return [
     'disks' => [
         'local' => [
             'driver' => 'local',
-            'root' => env('FILESYSTEM_DISK', '/tmp/laravel'),  // Use environment variable
+            'root' => storage_path('app'),
         ],
 
         'public' => [
             'driver' => 'local',
-            'root' => env('FILESYSTEM_DISK', '/tmp/laravel/public'),  // Change to /tmp/laravel/public
+            'root' => storage_path('app/public'),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
