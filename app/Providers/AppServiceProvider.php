@@ -21,8 +21,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         URL::forceScheme('https');
-        if (env('SERVERLESS_ENV', false)) {
-            app()->useStoragePath('/tmp/storage');
-        }
     }
 }
