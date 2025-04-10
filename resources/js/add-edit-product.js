@@ -63,4 +63,4 @@ async function addEditProduct() {
 }
 
 window.addEditProduct = addEditProduct;
-addEditProduct();
+

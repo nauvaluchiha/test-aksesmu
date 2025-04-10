@@ -1607,7 +1607,7 @@
                         </div>
                         <div class="pt-2">
                             <button
-                                onclick=""
+                                onclick="addEditProduct();"
                                 type="submit"
                                 class="w-full rounded-md bg-green-500 py-2 text-xl font-semibold text-white"
                             >
