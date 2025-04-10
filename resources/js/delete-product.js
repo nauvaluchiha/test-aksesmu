@@ -3,6 +3,11 @@ import { fetchProducts } from "./fetch-products.js";
 let product = document.getElementsByClassName("product");
 
 async function deleteProduct(data) {
+    document.getElementById("products-loading").classList.remove("hidden");
+    for (let el of product) {
+        el.classList.add("hidden");
+    }
+
     const productId = data.dataset.productId;
     const response = await fetch(`/api/products/${productId}`, {
         method: "DELETE",
@@ -19,14 +24,7 @@ async function deleteProduct(data) {
         document.getElementById("stock").value = "";
     }
 
-    document.getElementById("products-loading").classList.remove("hidden");
-    for (let el of product) {
-        el.classList.add("hidden");
-    }
-
     const result = await response.json();
-
-    console.log(result, "delete result");
 
     if (result.message) {
         fetchProducts().then(() => {
