@@ -1522,7 +1522,7 @@
     </head>
 
     <body>
-        <header class="sticky top-0 bg-white px-3">
+        <header class="sticky top-0 bg-white px-3 z-10">
             <nav
                 class="mx-auto flex max-w-6xl items-center justify-between py-4"
             >
