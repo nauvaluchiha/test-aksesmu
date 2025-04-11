@@ -2,7 +2,9 @@
     class="grid grid-cols-2 gap-2.5 rounded-xl bg-white p-5 max-[500px]:grid-cols-1 xl:grid-cols-3"
 >
     @foreach ($products as $product)
-        <div class="product rounded-lg min-h-48 flex flex-col justify-between border-2 border-green-600 p-4">
+        <div
+            class="product flex min-h-48 flex-col justify-between rounded-lg border-2 border-green-600 p-4"
+        >
             <div class="">
                 <p class="line-clamp-1 text-lg font-semibold">
                     {{ $product->name }}
@@ -27,7 +29,7 @@
                     <button
                         id="product-{{ $product->id }}"
                         class="rounded-lg bg-lime-300 px-3 text-black"
-                        onclick="selectProduct(this)"
+                        onclick="selectProduct(this); scrollToTop({{ $product->id }})"
                         data-product-id="{{ $product->id }}"
                         data-product-name="{{ $product->name }}"
                         data-product-description="{{ $product->description }}"
